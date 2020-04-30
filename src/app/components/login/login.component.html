@@ -1,33 +1,44 @@
-<div class = "container">
-    
-    <mat-card class = "cardStyle" >
-        <mat-toolbar ><span>Login</span></mat-toolbar>
-        <form (ngSubmit) = "onSubmitClick(username, password)" autocomplete="off" >
-            <mat-form-field appearance='outline'>
-              <mat-label>Email*</mat-label>
-              <input
-               matInput 
-               #username
-               placeholder="Example : username@incedoinc.com">
-            </mat-form-field>
-    
-            <mat-form-field appearance='outline'>
-                <mat-label>Password*</mat-label>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Sign in</mat-card-title>
+      </mat-card-header>
+  
+      <form [formGroup]="profileForm"  autocomplete="off" >
+        <mat-card-content>
+          <mat-form-field class="full-width" appearance='outline'>
+            <mat-label>Email</mat-label>
                 <input 
-                matInput
-                type= "password"  
-                #password
-                placeholder="password">
-            </mat-form-field>
+                    matInput 
+                    formControlName="email"
+                    placeholder="Example : username@incedoinc.com"
+                >
 
-            <button mat-raised-button 
-                color="primary"
-                style="width: 50%; margin-top:5px"
-                type="submit">
-                Sign in 
-            </button>
-            <span *ngIf="isShowInvalid"  style="font-size: 13px; color: red;" >*Invalid Credential</span>
-          </form>
+          </mat-form-field >
+  
+          <mat-form-field class="full-width" appearance='outline'>
+            <mat-label>Password*</mat-label>
+            <input 
+                matInput 
+                type= "password"
+                formControlName="password"
+                placeholder="Password"
+            >
+          </mat-form-field>
+        </mat-card-content>
+        <button 
+            mat-stroked-button             
+            class="btn-block"
+            (click)="onSubmitClick()"
+            type="submit"
+            [disabled]="profileForm.invalid"
+         >Login
+        </button>
+
+        <span *ngIf="isShowInvalid"  style="font-size: 13px; color: red;" >*Invalid Credential</span>
+
+      </form>
     </mat-card>
-
-</div>
+  
+  </div>

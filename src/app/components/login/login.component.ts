@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Injectable } from '@angular/core';
 import { AuthService } from '../../auth.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,23 +15,32 @@ export class LoginComponent implements OnInit {
   public authResult :  any;
   public invalidResult : any;
   isShowInvalid = false;
+  profileForm:FormGroup;
 
-  constructor( private Auth : AuthService) { }
+  constructor( private Auth : AuthService,private fb: FormBuilder,private router: Router) { }
 
   ngOnInit() {
+
+    this. profileForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]})
   }
 
-  onSubmitClick(username, password){
+  onSubmitClick(){
+
+    console.log(this.profileForm,);
     event.preventDefault()
-    console.log("In onSubmitClick",username.value, password.value);
 
+    this.authResult = this.Auth.isUserValid(this.profileForm);
+    
+    if(this.authResult.result === 'success'){
 
-    this.authResult = this.Auth.isUserValid(username.value,password.value)
-    if(this.authResult.result == "success"){
-      this.isShowInvalid = false
-      // redirect to next page
+      this.isShowInvalid = false;
+      this.router.navigate(['./dashboard']);  // redirect to next page
+      
     }
-    else{
+
+    else {
       this.isShowInvalid = true;
       this.invalidResult = this.authResult.credential;
     }

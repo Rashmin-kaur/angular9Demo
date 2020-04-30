@@ -5,21 +5,19 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  public result = {};
-
   constructor() { }
 
-  isUserValid(uname,pswd){
-    console.log("In isUserValid", uname,pswd);
+  isUserValid(loginCredential){
+    console.log("In isUserValid", loginCredential);
 
-      if(uname == "admin" && pswd == "12345"){
-        return this.result = {
+    if(loginCredential.value.email == "admin" && loginCredential.value.password == "12345"){
+      return  {
           credential : "valid",
           result : "success"
         };
       }
       else{
-        return this.result = {
+        return {
           credential : "invalid credential",
           result : "failure"
         };
