@@ -16,6 +16,23 @@ body {
   
 }
 
+.login-wrapper .full-width,
+.login-wrapper .btn-block {
+  width: 100%;
+}
+
+
+
+.login-wrapper mat-card-header {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-weight: 700;
+}
+
+
+
+
 .box {
   position: relative;
   top: 0;
@@ -33,42 +50,12 @@ body {
   align-items: center;
 }
 
-.box.back {
-  transform: scale(.95);
-  -webkit-transform: scale(.95);
-  -ms-transform: scale(.95);
-  top: -20px;
-  opacity: .8;
-  z-index: -1;
-}
 
-
-
-.login-wrapper .full-width,
-.login-wrapper .btn-block {
-  width: 100%;
-}
-
-.login-wrapper mat-card-header {
-  text-align: center;
-  width: 100%;
-  display: block;
-  font-weight: 700;
-}
-
-.login-wrapper mat-card-header mat-card-title {
-  font-size: 30px;
-  margin: 0;
-}
-
-.login-wrapper .mat-card {
-  padding: 40px 70px 50px;
-}
 
 .login-wrapper .mat-stroked-button {
   border: 1px solid rgb(224, 214, 218);
   line-height: 54px;
-  background-color:#52B3D9 ;
+  background-color:#0000A0;
   color: #fff;
  
 }

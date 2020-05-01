@@ -1,0 +1,31 @@
+
+.sidenav-sub{
+  width:14%;
+  margin-top:64px;
+}
+.sidenav-title{
+  font-size: 0.8vw;margin:1em;
+}
+.mat-sidenav-content{
+  top: 64px;
+}
+.sidenav-content{
+  font-size: 20px;
+  white-space: nowrap;
+  color: #8f999e;
+  font-family: helvetica;
+  border-radius: 10px;
+}
+
+.sidebar-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mat-list-item{
+  height : 56px;
+  font-size: small;
+}

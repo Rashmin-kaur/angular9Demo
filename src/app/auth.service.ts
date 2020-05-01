@@ -1,27 +1,31 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  public refreshList = new Subject<boolean>();
+  public hideSideBar = true;
+
+  constructor() {    
+    console.log("eferesh vale",this.refreshList);
+
+  }
+
+  
+
 
   isUserValid(loginCredential){
     console.log("In isUserValid", loginCredential);
 
-    if(loginCredential.value.email == "admin" && loginCredential.value.password == "12345"){
-      return  {
-          credential : "valid",
-          result : "success"
-        };
-      }
-      else{
-        return {
-          credential : "invalid credential",
-          result : "failure"
-        };
-      }
+      if(loginCredential.email === 'admin' && loginCredential.password === '12345')
+        this.refreshList.next(true);
+      else
+        this.refreshList.next(false);
         
   }
+
+
 }

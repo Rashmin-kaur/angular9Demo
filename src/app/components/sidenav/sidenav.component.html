@@ -1,0 +1,25 @@
+<mat-sidenav-container class="sidebar-container" >
+    <mat-sidenav  *ngIf="Auth.hideSideBar" 
+      #sidenav 
+      mode="side" 
+      opened
+      class="sidenav-sub"
+      >
+      <mat-nav-list>
+        <mat-list-item 
+          *ngFor="let nav of List"
+          mat-list-item 
+          routerLinkActive="router-link-active"
+          class="sidenav-content">
+          <mat-icon class="mr-10">{{nav.icon}}</mat-icon>
+          <span class="sidenav-title">{{nav.title}}</span>
+        </mat-list-item>
+        
+      </mat-nav-list>  
+    </mat-sidenav>
+  
+    <mat-sidenav-content class="mat-sidenav-content">
+        This is test
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

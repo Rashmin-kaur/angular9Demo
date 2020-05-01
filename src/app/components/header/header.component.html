@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" class="toolbar" >
+
+  <mat-toolbar-row >
+
+    <mat-icon 
+    class="icon menuIcon" 
+    aria-hidden="false" 
+    (click)="sidenav.toggle()"
+    > 
+      menu
+    </mat-icon>
+
+    <span><img  src="./assets/images/incedoPlain.png"  class="headerLogo" style="width:150px;"></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu" style = "margin-left: 80%;">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <span (click)="logout()" style = "font-size: 15px; ">Log out</span>
+      </button>
+    </mat-menu>
+
+</mat-toolbar-row>
+</mat-toolbar>
+
+
+
+
+ 

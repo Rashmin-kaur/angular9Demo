@@ -1,0 +1,24 @@
+.icon {
+    padding: 0 14px;
+  }
+.spacer {
+    flex: 1 1 auto;
+}
+.headerLogo{
+    width: 25%;
+}
+.toolbar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+}
+.menuIcon{
+    cursor: pointer;
+}
+.mat-list-item{
+    height : 56px;
+    font-size: small;
+}

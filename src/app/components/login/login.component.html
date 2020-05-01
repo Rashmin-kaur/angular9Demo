@@ -4,41 +4,40 @@
       <mat-card-header>
         <mat-card-title>Sign in</mat-card-title>
       </mat-card-header>
-  
-      <form [formGroup]="profileForm"  autocomplete="off" >
+      
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmitClick()" autocomplete="off">
         <mat-card-content>
-          <mat-form-field class="full-width" appearance='outline'>
+          <mat-form-field class="full-width" >
             <mat-label>Email</mat-label>
-                <input 
-                    matInput 
-                    formControlName="email"
-                    placeholder="Example : username@incedoinc.com"
-                >
-
+            <input 
+              matInput 
+              formControlName="email"
+              placeholder="Example : username@incedoinc.com"
+            >
           </mat-form-field >
   
-          <mat-form-field class="full-width" appearance='outline'>
+          <mat-form-field class="full-width" >
             <mat-label>Password*</mat-label>
             <input 
-                matInput 
-                type= "password"
-                formControlName="password"
-                placeholder="Password"
+              matInput 
+              type= "password"
+              formControlName="password"
+              placeholder="Password"
             >
           </mat-form-field>
         </mat-card-content>
         <button 
-            mat-stroked-button             
-            class="btn-block"
-            (click)="onSubmitClick()"
+            mat-flat-button 
+            color="primary"
+            style="width: 100%;margin-top:5px"
             type="submit"
-            [disabled]="profileForm.invalid"
-         >Login
+            >
+          <span style="font-size: 20px;">Login</span> 
         </button>
-
-        <span *ngIf="isShowInvalid"  style="font-size: 13px; color: red;" >*Invalid Credential</span>
+        <span *ngIf="isInvalid"
+          style="font-size: 13px; color: red;" >*Invalid Credential</span>
 
       </form>
     </mat-card>
   
-  </div>
+</div>
